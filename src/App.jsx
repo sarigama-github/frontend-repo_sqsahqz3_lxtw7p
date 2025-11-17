@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Showcase from "./components/Showcase";
 import Contact from "./components/Contact";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   const [profile, setProfile] = useState(null);
@@ -22,7 +23,9 @@ function App() {
     <div className="min-h-screen bg-[#0b0b13] text-white">
       <Nav />
       <main>
-        <Hero profile={profile} />
+        <ErrorBoundary fallback={<div className="h-[60vh]" />}> 
+          <Hero profile={profile} />
+        </ErrorBoundary>
         <Showcase />
         <Contact />
       </main>
